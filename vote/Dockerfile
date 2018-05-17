@@ -4,6 +4,9 @@ FROM python:2.7-alpine
 # Set the application directory
 WORKDIR /app
 
+# Install nodemon
+RUN apk update && apk add nodejs && npm i -g nodemon
+
 # Install our requirements.txt
 ADD requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt

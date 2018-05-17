@@ -27,16 +27,16 @@ async.retry(
   function(callback) {
     pg.connect('postgres://postgres@db/postgres', function(err, client, done) {
       if (err) {
-        console.error("Waiting for db");
+        console.error("Waiting for db!");
       }
       callback(err, client);
     });
   },
   function(err, client) {
     if (err) {
-      return console.error("Giving up");
+      return console.error("Giving up!");
     }
-    console.log("Connected to db");
+    console.log("Connected to db!");
     getVotes(client);
   }
 );

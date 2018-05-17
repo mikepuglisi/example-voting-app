@@ -1,9 +1,9 @@
-version: "3"
+version: "3.3"
 
 services:
   vote:
     build: ./vote
-    command: python app.py
+    command: nodemon --watch template --exec "python" app.py
     volumes:
      - ./vote:/app
     ports:
@@ -14,7 +14,7 @@ services:
 
   result:
     build: ./result
-    command: nodemon server.js
+    command: nodemon --watch views -e js,html server.js
     volumes:
       - ./result:/app
     ports:
