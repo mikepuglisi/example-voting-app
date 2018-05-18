@@ -4,6 +4,8 @@ services:
   vote:
     build: ./vote
     command: nodemon --watch template --exec "python" app.py
+    secrets:
+      - db-password    
     volumes:
      - ./vote:/app
     ports:
@@ -15,6 +17,8 @@ services:
   result:
     build: ./result
     command: nodemon --watch views -e js,html server.js
+    secrets:
+      - db-password
     volumes:
       - ./result:/app
     ports:
@@ -53,3 +57,7 @@ volumes:
 networks:
   front-tier:
   back-tier:
+
+secrets:
+  db-password:
+    file: ./secrets/DB_PASSWORD

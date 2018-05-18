@@ -9,6 +9,9 @@ var express = require('express'),
     server = require('http').Server(app),
     io = require('socket.io')(server);
 
+
+const fs = require('fs');
+
 io.set('transports', ['polling']);
 
 var port = process.env.PORT || 4000;
@@ -77,10 +80,16 @@ app.use(function(req, res, next) {
 app.use(express.static(__dirname + '/views'));
 
 app.get('/', function (req, res) {
+  const fs = require('fs');
+
+  // const db = fs.readFileSync('/run/secrets/DB_PASSWORD', 'utf8')
+  // console.log('db', db)
   res.sendFile(path.resolve(__dirname + '/views/index.html'));
 });
 
 server.listen(port, function () {
   var port = server.address().port;
+  // const db = fs.readFileSync('/run/secrets/DB_PASSWORD', 'utf8'); ///run/secrets/DB_PASSWORD
+  // console.log('db1', db)  
   console.log('App running on port ' + port);
 });

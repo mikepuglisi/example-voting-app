@@ -15,6 +15,7 @@ app.controller('statsCtrl', function($scope){
        var b = parseInt(data.b || 0);
 
        var percentages = getPercentages(a, b);
+       
 
        bg1.style.width = percentages.a + "%";
        bg2.style.width = percentages.b + "%";
