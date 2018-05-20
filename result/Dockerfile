@@ -6,11 +6,9 @@ WORKDIR /app
 RUN npm install -g nodemon
 RUN npm config set registry https://registry.npmjs.org
 COPY package.json /app/package.json
-# ENV NODE_PATH /node_modules
-RUN rm -rf node_modules
-# RUN npm cache clean --force
-RUN npm install 
-RUN mv /app/node_modules /node_modules
+RUN npm install \ 
+ && npm cache clean --force \
+ && mv /app/node_modules /node_modules
 COPY . /app
 
 ENV PORT 80
