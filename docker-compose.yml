@@ -18,7 +18,7 @@ services:
 
   result:
     build: ./result
-    command: nodemon --watch views -e js,html server.js
+    command: nodemon server.js exec "node -r babel-register" # nodemon --watch views -e js,html server.js
     tmpfs:
       - /run        
     secrets:

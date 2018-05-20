@@ -82,8 +82,8 @@ app.use(express.static(__dirname + '/views'));
 app.get('/', function (req, res) {
   const fs = require('fs');
 
-  const db = fs.readFileSync('/run/secrets/my_file_secret', 'utf8'); ///run/secrets/DB_PASSWORD
-  console.log('db2+++++', db)  
+  // const db = fs.readFileSync('/run/secrets/my_file_secret', 'utf8'); ///run/secrets/DB_PASSWORD
+  // console.log('db2+++++', db)  
   res.sendFile(path.resolve(__dirname + '/views/index.html'));
 });
 
