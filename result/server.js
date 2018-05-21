@@ -1,7 +1,9 @@
-var express = require('express'),
-    async = require('async'),
+import async2 from 'async';
+
+var express = require('express'),    
     pg = require("pg"),
     path = require("path"),
+    async = require("async"),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
@@ -13,6 +15,7 @@ var express = require('express'),
 const fs = require('fs');
 
 io.set('transports', ['polling']);
+
 
 var port = process.env.PORT || 4000;
 
@@ -89,7 +92,7 @@ app.get('/', function (req, res) {
 
 server.listen(port, function () {
   var port = server.address().port;
-  const db = fs.readFileSync('/run/secrets/my_file_secret', 'utf8'); ///run/secrets/DB_PASSWORD
-  console.log('db1+++++', db)  
+  //const db = fs.readFileSync('/run/secrets/my_file_secret', 'utf8'); ///run/secrets/DB_PASSWORD
+  //console.log('db1+++++', db)  
   console.log('App running on port ' + port);
 });
